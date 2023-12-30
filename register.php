@@ -10,14 +10,13 @@ function register($username, $display_name, $full_name, $email, $password) {
         echo "Error: Unable to connect to MySQL. ".mysqli_connect_error() ;
         exit; //stop processing the page further
     };
-
-    $query = "INSERT INTO USERS (username, display_name, full_name, email, password) VALUES (?,?,?,?,?);";
+    
+    $query = "INSERT INTO users (username, display_name, full_name, email, password) VALUES (?,?,?,?,?)";
     $stmt = mysqli_prepare($DBC,$query);
     mysqli_stmt_bind_param($stmt,'sssss',$username,$display_name,$full_name,$email,$password);
     mysqli_stmt_execute($stmt);
     $new_id = mysqli_insert_id($DBC);
     mysqli_close($DBC);
-    
     return $new_id;
 }
 
@@ -67,6 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $rawPw = $_POST['password'];
             if (strlen($rawPw) >= 12 || (strlen($rawPw) >= 8 && preg_match('@[A-Z]@', $rawPw) && preg_match('@[a-z]@', $rawPw) && preg_match('@[0-9]@', $rawPw))) {
                 $pw = password_hash($rawPw, PASSWORD_DEFAULT);
+                
             } else {
                 $err++;
                 $msg .= 'Password complexity requirements not met  ';
@@ -112,10 +112,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['logged_in'] = 1;
             $_SESSION['role'] = 1;
             $_SESSION['display_name'] = $dn;
-            header('Location: '.$_SERVER['PHP_SELF']);
+            //header('Location: '.$_SERVER['PHP_SELF']);
         } else {
             $msg .= 'Sorry, something went wrong - please try again!';
         }
+    } else {
+        echo '<p class="error-message"><?=$msg;?></p>';
     }
 }
 
