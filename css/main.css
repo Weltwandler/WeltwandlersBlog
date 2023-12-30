@@ -1,0 +1,153 @@
+html, body {
+    padding: 0;
+    margin: 0;
+    border-style: none;
+    width: 100%;
+    height:100%;
+}
+
+body {
+    position: relative;
+}
+
+
+#wrapper {
+    display: flex;
+    min-height: 100%;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    padding-left: 2.5%;
+    margin: 0;
+    border-style: none;
+    width: auto;
+    flex: 0;
+    position: sticky;
+    top: 0;
+}
+
+main {
+    padding: 0.5% 0 0.5% 5%;
+    margin: 0;
+    border-style: none;
+    width:auto;
+    flex: 8;    
+}
+
+footer {
+    text-align: right;
+    font-family:'Courier New', Courier, monospace;
+    font-size: small;
+    padding: 0.5%;
+    border-style: none;
+    position: fixed;
+    bottom:0;
+    right: 3%
+}
+
+#main-nav li {
+    text-align: center;
+    padding: 0%;
+    margin: 0%;
+    border-style: none;
+}
+
+#about-nav ul {
+    list-style-type:none;
+    padding-left: 30px;
+}
+
+#about-nav li {
+    padding-bottom: 20px;
+}
+
+footer p, footer a {
+    opacity: 40%;
+    padding: 0%;
+    margin: 0%;
+    border-style: none;
+}
+
+#subtitle {
+    margin-top: 2%;
+    margin-left: 35%;
+    font-family: cursive;
+    font-style: italic;
+    margin-bottom: 3%;
+}
+
+#main-nav a {
+    border: none;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.error-message {
+    color:red;
+}
+
+#submit-main-form-profile {
+    display: none;
+}
+
+#profile, #password-change {
+    display: none;
+}
+
+.inventory-container {
+    display: none;
+}
+
+.main-container {
+    margin-left: 5%;
+    width: 60%;
+    padding-right: 15%;
+}
+
+#about-nav-container {
+    width: 25%;
+    padding-top: 10px;
+}
+
+#about-display-container {
+    width: 60%;
+    padding-right: 10%;
+}
+
+#about-display-container p {
+    text-wrap:wrap;
+}
+
+#about-display-container, #about-nav-container {
+    float: left;
+}
+
+p.byline {
+    font-size: 80%;
+    padding-left: 15px;
+}
+
+span.author {
+    font-style: italic;
+}
+
+p.publish-time {
+    font-style: italic;
+    font-size: 65%;
+}
+
+.blog-post {
+    padding-bottom: 3px;
+}
+
+.about-article {
+    display: none;
+}
+
+.blog-title {
+    text-decoration: none;
+}

@@ -1,0 +1,7 @@
+.user, .author, .all {
+    display: inline-block;
+}
+
+.guest, .admin {
+    display: none;
+}

@@ -1,0 +1,133 @@
+html {
+    background-color: black;
+}
+
+
+header {
+    background-color: black;
+}
+
+header h1 {
+    text-align:center;
+    font-family: cursive;
+    color: #fff;
+    text-shadow: 0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 42px rgb(255, 0, 221),
+    0 0 82px rgb(255, 0, 221),
+    0 0 92px rgb(255, 0, 221),
+    0 0 102px rgb(255, 0, 221),
+    0 0 151px rgb(255, 0, 221)
+
+}
+
+header p {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+    font-size: 80%;
+    text-align: right;
+    padding-right: 40%;
+}
+
+.subtitle {
+    text-align: left;
+    color: #fff;
+    text-shadow: 0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 42px rgb(255, 0, 221),
+    0 0 82px rgb(255, 0, 221),
+    0 0 92px rgb(255, 0, 221),
+    0 0 102px rgb(255, 0, 221)
+}
+
+main {
+    background-color: black;
+    color:antiquewhite;
+}
+
+a {
+    color: lightskyblue;
+}
+
+footer {
+    color: lightcyan;
+}
+
+#main-nav a, #about-nav li {
+    color: #fff;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#main-nav a:visited {
+    color: lightblue;
+}
+
+#main-nav a:hover, #main-nav a:focus, .about-link:hover {
+    text-shadow: 0 0 2px #fff,
+    0 0 5px #fff,
+    0 0 8px #fff,
+    0 0 15px rgb(0, 255, 200),
+    0 0 25px rgb(0, 255, 200),
+    0 0 40px rgb(0, 255, 200),
+    0 0 60px rgb(0, 255, 200)
+}
+
+#main-nav a:active {
+    text-shadow: 0 0 2px #fff,
+    0 0 5px #fff,
+    0 0 8px #fff,
+    0 0 15px rgb(0, 200, 255),
+    0 0 25px rgb(0, 200, 255),
+    0 0 40px rgb(0, 200, 255),
+    0 0 60px rgb(0, 200, 255)
+}
+
+.blog-title h2 {
+    font-family: cursive;
+    color: rgb(255,150,231);
+    margin-bottom: 5px;
+}
+
+p.byline {
+    color: lightgray;
+}
+
+p.publish-time {
+    color: rgb(150,255,241);
+}
+
+.blog-post {
+    border-top-style: solid;
+    border-color: rgb(255,150,231);
+}
+
+.blog-post p {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+span.comment-button {
+    font-family: cursive;
+    font-size: 90%;
+    color:rgb(0, 255, 200);
+}
+
+span.comment-button:hover {
+    text-shadow: 0 0 2px #fff,
+    0 0 3px #fff,
+    0 0 5px #fff,
+    0 0 10px rgb(0, 255, 200),
+    0 0 20px rgb(0, 255, 200),
+    0 0 30px rgb(0, 255, 200),
+    0 0 50px rgb(0, 255, 200);
+}
+
+.about-article p {
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.about-article h2 {
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    color: rgb(150,255,231);
+}
