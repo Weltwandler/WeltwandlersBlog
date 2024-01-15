@@ -4,6 +4,12 @@ include "header.php";
 include "menu.php";
 include "php-functionality/posts.php";
 
+if (!isAuthor()) {
+    http_response_code(403);
+    echo '<p class="error-message">You need to be logged in and an author to add a post</p>';
+    exit;
+}
+
 function addPost($post, $unpublish_time=null) {
     $DBC = mysqli_connect(DBHOST, DBUSER, DBPW, DBNAME);
     
@@ -51,7 +57,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $err++;
         $msg .= 'No valid title found ';
     }
-
+    
+    
     // Content validation
     if (isset($_POST['content']) && is_string($_POST['content'])) {
         $content = bb_ify($_POST['content']);
@@ -59,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $err++;
         $msg .= 'Content invalid ';
     }
-
+    
     // Publish Date validation
     if (isset($_POST['publish_time']) && $_POST['publish_time'] != null) {
         // $publish_time = strtotime($_POST['publish_time']);
@@ -68,13 +75,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $err++;
             $msg .= 'Invalid publish time ';
         } else {
-            $publish_time->setTimezone(new DateTimeZone('Pacific/Auckland'));
+            $publish_time = $publish_time->setTimezone(new DateTimeZone('Pacific/Auckland'));
         }
     } else {
         $publish_time = time();
         $publish_time = DateTime::createFromFormat("d/m/Y H:i:s", date("d/m/Y H:i:s", $publish_time));
-    
-        $publish_time->setTimezone(new DateTimeZone('Pacific/Auckland'));
     }
 
     // Unpublish time validation
@@ -88,9 +93,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $unpublish_time = null;
     }
     
-    $post = new BlogPost(-1, $_SESSION['userid'], $_SESSION['display_name'], [], $title, $content, $publish_time->getTimestamp(), false, []);
-
     if ($err == 0) {
+        $publish_time = $publish_time->setTimezone(new DateTimeZone('UTC'));
+        $post = new BlogPost(-1, $_SESSION['userid'], $_SESSION['display_name'], [], $title, $content, $publish_time->getTimestamp(), false, []);
         addPost($post, $unpublish_time);
     }
     

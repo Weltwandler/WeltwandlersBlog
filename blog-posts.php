@@ -1,7 +1,6 @@
 <?php
 
 include "php-functionality/posts.php";
-include "php-functionality/comments.php";
 
 $blog_arr = [];
 $category_arr = [];
@@ -18,12 +17,12 @@ $DBC = mysqli_connect(DBHOST, DBUSER, DBPW, DBNAME);
 
 $columns = "posts.post_id AS post_id, posts.user_id AS user_id, users.display_name AS author_name, posts.title AS title, posts.content AS content, posts.publish_time AS publish_time, posts.closed_for_comments AS closed_for_comments";
 $source = "FROM posts RIGHT JOIN users ON posts.user_id = users.user_id";
-$conditions = "WHERE NOW() >= posts.publish_time AND (NOW() < posts.unpublish_time OR posts.unpublish_time IS NULL)";
+$conditions = "WHERE NOW() >= SUBTIME(posts.publish_time, '0 13:0:0.000000')";
 
 $result = assemble_query($DBC, $columns,$source, $conditions);
 
 while ($row = mysqli_fetch_assoc($result)) {
-    $post = new BlogPost($row['post_id'], $row['user_id'], $row['author_name'], [], $row['title'], de_bb_ify($row['content']), strtotime($row['publish_time']), $row['closed_for_comments'], []);
+    $post = new BlogPost($row['post_id'], $row['user_id'], $row['author_name'], [], $row['title'], $row['content'], strtotime($row['publish_time']), $row['closed_for_comments'], []);
     array_push($blog_arr, $post);
 }
 

@@ -1,5 +1,5 @@
 <?php
-class Comment {
+class Comment implements Iposted_content {
         public $id;
         public $author_user;
         public $author_name;
@@ -16,6 +16,10 @@ class Comment {
             $this->content = $content;
             $this->replies = $replies;
             $this->parent = $parent;
+        }
+
+        function getUserId() {
+            return $this->author_user;
         }
 
         function display($indent=0) {

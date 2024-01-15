@@ -23,8 +23,13 @@ function getDbArr($db) {
 }
 
 function assemble_query($DBC, $columns, $source, $conditions="") {
-    $query = "SELECT " . $columns . " " .$source . " " . $conditions;
-    return mysqli_query($DBC, $query);
+    $query = "SELECT " . $columns . " " . $source;
+    if ($conditions != "") {
+        $query .= " " . $conditions;
+    }
+    $result = mysqli_query($DBC, $query);
+    
+    return $result;
 }
 
 function cleanStr($str) {
@@ -53,11 +58,11 @@ function bb_ify($str) {
     $str = str_replace("<u>", "[u]", $str);
     $str = str_replace("</u>", "[/u]", $str);
     $str = str_replace('<br />', '[nl]', $str);
-
+    
     while (strpos($str, '<img') !== false) {
         $img_pos = strpos($str, '<img');
-        $src_pos = strpos($str, 'src="', $img_pos);
-        $src_pos_end = strpos($str, '"', $src_pos + 5);
+        $src_pos = strpos($str, 'src=”', $img_pos);
+        $src_pos_end = strpos($str, '”', $src_pos + 5);
         if ($src_pos && $src_pos_end) {
             $src = substr($str, $src_pos+5, $src_pos_end - ($src_pos + 5));
         } else {
@@ -72,13 +77,13 @@ function bb_ify($str) {
         }
         
     }
-
+    
     while (strpos($str, '<a href=') !== false) {
         $link_pos = strpos($str, '<a href=');
-        $href_pos = strpos($str, 'href="', $link_pos);
+        $href_pos = strpos($str, 'href=”', $link_pos);
         
         if ($href_pos !== false) {
-            $href_pos_end = strpos($str, '"', $href_pos + 6);
+            $href_pos_end = strpos($str, '”', $href_pos + 6);
             $opening_end_pos = strpos($str, '>', $href_pos);
             $end_pos = strpos($str, '</a>', $link_pos);
             if ($href_pos_end !== false && $opening_end_pos !== false && $end_pos !== false) {
@@ -143,6 +148,12 @@ function de_bb_ify($str) {
 
     return $str;
 
+}
+
+function strip_nl($str) {
+    $str = str_replace('[nl]', '', $str);
+
+    return $str;
 }
 
 // Get categories

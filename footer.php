@@ -1,6 +1,6 @@
 </div>
             <footer>
-                <p class="copyright">&copy; 2022 Manuel Gebhard</p>
+                <p class="copyright">&copy; 2023-2024 Manuel Gebhard</p>
                 <nav class="footer-nav">
                     <a href="privacy.php">Privacy</a><br>
                     <a href="mailto:info@weltwandler.nz">Contact</a>

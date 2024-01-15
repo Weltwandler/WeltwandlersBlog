@@ -131,7 +131,7 @@ p.byline {
     padding-left: 15px;
 }
 
-span.author {
+span.author-name {
     font-style: italic;
 }
 
@@ -142,6 +142,8 @@ p.publish-time {
 
 .blog-post {
     padding-bottom: 3px;
+    padding-right: 10px;
+    margin-right: 10px;
 }
 
 .about-article {
@@ -150,4 +152,13 @@ p.publish-time {
 
 .blog-title {
     text-decoration: none;
+}
+
+#blog-container article  {
+    max-height: 80vh;
+    overflow: auto;
+}
+
+.edit-window {
+    display: none;
 }

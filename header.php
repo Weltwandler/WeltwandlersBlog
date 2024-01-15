@@ -47,7 +47,7 @@ $themeStyle = refreshTheme();
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Weltwandler's Blog</title>
+    <title>Weltwandlers Blog</title>
     <link rel="stylesheet" type="text/css" href="./css/main.css">
     <link rel="stylesheet" type="text/css" href="<?=$themeStyle;?>">
     <link rel="stylesheet" type="text/css" href="<?=$userStyle;?>">
@@ -56,7 +56,7 @@ $themeStyle = refreshTheme();
 <body>
     <div id="wrapper">
         <header id="header">
-            <h1>Weltwandler's Blog</h1>
+            <h1>Weltwandlers Blog</h1>
             <div id="subtitle">
                 <aside class="subtitle">A journey across worlds</aside>
             </div>

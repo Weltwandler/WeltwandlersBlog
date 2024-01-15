@@ -1,6 +1,7 @@
 <?php
 
-include "php-functionality/user.php";
+include "user.php";
+include "posted-content.php";
 
 session_start();
 checkSession();
@@ -27,6 +28,15 @@ function isAuthor() {
     } else {
         return false;
     }
+}
+
+function canEdit($posted_content) {
+    if ($posted_content instanceof Iposted_content && loggedIn()) {
+        if ($_SESSION['userid'] == $posted_content->getUserId()) {
+            return true;
+        }
+    }
+    return false;
 }
 
 function checkSession() {
