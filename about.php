@@ -31,7 +31,7 @@ include "menu.php";
             <article id="about-project" class="about-article">
                 <h2>About this project</h2>
                 <p>This blog does not run on any commercial or otherwise pre-built platform. I have built it from scratch, mostly as a challenge and for practice. It is very much a work in progress - I deployed it with only the most barebones features, and many others are planned but not yet fully implemented.</p>
-                <p>The entire source code (aside from hardcoded authentication details) is accessible on <a href="https://github.com/Weltwandler/WeltwandlersBlog/upload/main">Github</a> (or will be when I get around to it).</p>
+                <p>The entire source code (aside from hardcoded authentication details) is accessible on <a href="https://github.com/Weltwandler/WeltwandlersBlog/">Github</a>.</p>
                 <p>It is designed to allow for multiple different authors, scheduling posts to be published in the future or even unpublished at a certain time (for temporary announcements and the like). For security reasons, posts are stripped of any HTML, JavaScript and PHP content, but links, images and basic formatting remain functional. Planned features that are not yet fully implemented are an account management system, comments and categories - watch this space.</p>
             </article>
         </div>
