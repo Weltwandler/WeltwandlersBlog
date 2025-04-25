@@ -111,7 +111,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <input type="text" id="title" name="title" required>
             <br><br>
             <label for="content">Post:</label><br>
-            <textarea id="content" name="content" rows="8" cols="50"></textarea>
+            <textarea id="content" name="content" rows="20" cols="100"></textarea>
             <br><br>
             <label for="publish_time">Publish on (leave blank to publish immediately): </label><br>
             <input type="datetime-local" id="publish_time" name="publish_time">
